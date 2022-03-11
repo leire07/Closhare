@@ -72,10 +72,10 @@ public class Registrar extends AppCompatActivity {
             public void onClick(View v) {
 
 //                Ver si los campos estan rellenados
-                if(!usuario.getText().toString().isEmpty() || !password.getText().toString().isEmpty() || !repit_pass.getText().toString().isEmpty()){
+                if(!usuario.getText().toString().isEmpty() && !password.getText().toString().isEmpty() && !repit_pass.getText().toString().isEmpty()){
 
 //                    Primero comprobamos si las contrasenyas son iguales. Si no< mostramos pass_no_coinciden
-                    if(!password.getText().equals(repit_pass.getText())){
+                    if(!password.getText().toString().equals(repit_pass.getText().toString())){
                         pass_no_coinciden.setVisibility(View.VISIBLE);
                     }else{
 //                    Conectamos con bd y perimero comprobamos si ya existe el usuario
@@ -93,7 +93,7 @@ public class Registrar extends AppCompatActivity {
                     if(!password.getText().toString().isEmpty()){
                         no_rellenado1.setVisibility(View.INVISIBLE);
                     }
-                    if(repit_pass.getText().toString().isEmpty()){
+                    if(!repit_pass.getText().toString().isEmpty()){
                         no_rellenado3.setVisibility(View.INVISIBLE);
                     }
                 }
@@ -112,18 +112,18 @@ public class Registrar extends AppCompatActivity {
     private void registerUser(){
 
 //        Guardamos en variables los valores de los campos
-        String user = usuario.getText().toString();
+        String username = usuario.getText().toString();
         String pass = password.getText().toString();
 
 //        Conectamos con la base de datos
-        mAuth.createUserWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword(username,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
 
 //                     Creamos ek
                     Map<String, Object> user = new HashMap<>();
-                    user.put("Email", user);
+                    user.put("Email", username);
                     user.put("Contrasena", pass);
 
 //                    Enviamos correo de verificacion al usuario
@@ -132,11 +132,12 @@ public class Registrar extends AppCompatActivity {
                     db.collection("Users")
                             .document(usuarioo.getUid())
                             .set(user);
+
                     Log.d("Demo","El usuario ha sido registrado "+usuarioo.getEmail());
                     startActivity(new Intent(getApplicationContext(), Login.class));
 
                 }else{
-                    Log.d("Demo","El usuario no se pudo registrarse " + usuarioo.getEmail());
+                    Log.d("Demo","El usuario no se pudo registrarse " + username);
                     Toast.makeText(getApplicationContext(),"No se pudo registrar el usuario "
                             +task.getException().getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 }
