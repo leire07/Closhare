@@ -130,7 +130,9 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#818587">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/register_pass"
@@ -140,6 +142,7 @@
             android:backgroundTint="#C5CBCE"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center|left"
+            android:inputType="textPassword"
             android:textColor="#000000" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -154,7 +157,9 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#818587">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/register_pass_repit"
@@ -164,6 +169,7 @@
             android:backgroundTint="#C5CBCE"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center|left"
+            android:inputType="textPassword"
             android:textColor="#000000" />
     </com.google.android.material.textfield.TextInputLayout>
 

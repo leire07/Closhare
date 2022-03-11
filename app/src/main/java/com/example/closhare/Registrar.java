@@ -72,7 +72,7 @@ public class Registrar extends AppCompatActivity {
             public void onClick(View v) {
 
 //                Ver si los campos estan rellenados
-                if(!usuario.getText().toString().isEmpty() && !password.getText().toString().isEmpty() && !repit_pass.getText().toString().isEmpty()){
+                if(!usuario.getText().toString().isEmpty() || !password.getText().toString().isEmpty() || !repit_pass.getText().toString().isEmpty()){
 
 //                    Primero comprobamos si las contrasenyas son iguales. Si no< mostramos pass_no_coinciden
                     if(!password.getText().toString().equals(repit_pass.getText().toString())){

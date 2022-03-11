@@ -101,6 +101,8 @@
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#818587"
         tools:ignore="SpeakableTextPresentCheck">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -111,6 +113,7 @@
             android:background="@drawable/input_text"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center_vertical"
+            android:inputType="textPassword"
             android:textColor="#000000"
             android:textColorHint="#C5CBCE" />
     </com.google.android.material.textfield.TextInputLayout>
