@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/collection"
+        android:icon="@drawable/ic_home_collection"
+        android:title="Collection"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_iconColor="#A833FF"
+        app:cnb_textColor="#A833FF" />
+
+    <item
+        android:id="@+id/create"
+        android:icon="@drawable/ic_create_collection"
+        android:title="Create"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_iconColor="#A833FF"
+        app:cnb_textColor="#A833FF" />
+
+    <item
+        android:id="@+id/gallery"
+        android:icon="@drawable/ic_gallery"
+        android:title="Gallery"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_iconColor="#A833FF"
+        app:cnb_textColor="#A833FF" />
+</menu>
