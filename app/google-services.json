@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "588920300034",
+    "project_id": "closhare-b93d6",
+    "storage_bucket": "closhare-b93d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588920300034:android:dff8d3f458e1ae7b71bd1b",
+        "android_client_info": {
+          "package_name": "com.example.closhare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588920300034-oco9ndh1o32i6pvv1ek29jn0ld8a244d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.closhare",
+            "certificate_hash": "b3b76f924adc78b4ce055c9d350e56e6183a2e08"
+          }
+        },
+        {
+          "client_id": "588920300034-rjto9moihg05smcbulrrqtdlhgtl6arn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOuYO2vZBtFuBQodlVSAuK93G6asOISYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588920300034-rjto9moihg05smcbulrrqtdlhgtl6arn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

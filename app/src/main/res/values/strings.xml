@@ -5,4 +5,6 @@
     <string name="login_restaurar">Restaurar contraseña</string>
     <string name="login_entrar">Entrar </string>
     <string name="crear_cuenta">Crear cuenta</string>
+    <string name="fondo">fondo</string>
+    <string name="restaurar_pass">Por favor, incierta tu correo electronico para que nosotros podamos esviarte el link para restaurar tu contraseña</string>
 </resources>

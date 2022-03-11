@@ -32,14 +32,14 @@
 
     <TextView
         android:id="@+id/welcome2"
-        android:layout_width="223dp"
-        android:layout_height="77dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/moontimeregularr"
         android:text="Login"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="76sp"
+        android:textSize="85sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/input_text"
         app:counterEnabled="false"
@@ -61,12 +61,13 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_username"
             android:layout_width="315dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:background="@drawable/input_text"
             android:drawingCacheQuality="auto"
-            android:fontFamily="@font/montserratregular"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center|right"
             android:textAlignment="viewStart"
             android:textColor="#000000"
@@ -80,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserratregular"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/login_restaurar"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -103,11 +104,12 @@
         tools:ignore="SpeakableTextPresentCheck">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_pass"
             android:layout_width="315dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:background="@drawable/input_text"
-            android:fontFamily="@font/montserratregular"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center_vertical"
             android:textColor="#000000"
             android:textColorHint="#C5CBCE" />
@@ -127,6 +129,7 @@
         android:id="@+id/imageView6"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:tint="#363637"
         app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -140,9 +143,10 @@
         android:layout_marginTop="80dp"
         android:background="@drawable/input_text"
         android:backgroundTint="#95B5C2"
-        android:fontFamily="@font/montserratregularr"
-        android:text="entrar"
+        android:fontFamily="@font/montserrat_regularr"
+        android:text="@string/login_entrar"
         android:textColor="#E3EAEB"
+        android:textIsSelectable="true"
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
@@ -153,8 +157,8 @@
         android:id="@+id/crear_cuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/montserratregularr"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/montserrat_regularr"
         android:text="@string/crear_cuenta"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -175,26 +179,26 @@
         app:tint="#FDFDFD" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/login_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:tint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toStartOf="@+id/imageView9"
+        app:layout_constraintEnd_toStartOf="@+id/login_facebook"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7"
         app:srcCompat="@drawable/icon_google48" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/login_facebook"
         android:layout_width="46dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"
         android:tint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintBottom_toBottomOf="@+id/login_google"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/login_google"
         app:srcCompat="@drawable/icon_facebook48" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
