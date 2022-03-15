@@ -1,4 +1,4 @@
-package com.example.closhare;
+package com.example.closhare.no_autorizado;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.closhare.R;
+import com.example.closhare.no_autorizado.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -53,11 +54,11 @@ public class Registrar extends AppCompatActivity {
         no_rellenado2 = findViewById(R.id.no_rellenado2);
         no_rellenado3 = findViewById(R.id.no_rellenado3);
 
-
 //        Firebase
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         usuarioo = FirebaseAuth.getInstance().getCurrentUser();
+        mAuth.setLanguageCode("es");
 
 //        Ponemos textos rojos en invisible para luego si algo esta mal cambiarles a visible
         usuario_existe.setVisibility(View.INVISIBLE);
@@ -86,15 +87,18 @@ public class Registrar extends AppCompatActivity {
                     no_rellenado2.setVisibility(View.VISIBLE);
                     no_rellenado3.setVisibility(View.VISIBLE);
 
-//                    Mostramos que los campos estan vacios
+//                    Mostramos que los campos estan vacios y un Toast
                     if(!usuario.getText().toString().isEmpty()){
                         no_rellenado2.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(), "Rellena todos los campos", Toast.LENGTH_LONG).show();
                     }
                     if(!password.getText().toString().isEmpty()){
                         no_rellenado1.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(), "Rellena todos los campos", Toast.LENGTH_LONG).show();
                     }
                     if(!repit_pass.getText().toString().isEmpty()){
                         no_rellenado3.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(), "Rellena todos los campos", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -150,7 +154,5 @@ public class Registrar extends AppCompatActivity {
         usuarioo.sendEmailVerification();
         Log.d("Demo", "El correo ha sido enviado");
         Toast.makeText(this, "Se ha enviado un correo de confirmación", Toast.LENGTH_LONG).show();
-//        Intent intent = new Intent(this, Login.class);
-//        startActivity(intent);
     }
 }

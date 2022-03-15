@@ -50,7 +50,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout5"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
@@ -78,12 +78,13 @@
     <Button
         android:id="@+id/button_enviar_correo"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/input_text"
         android:backgroundTint="#95B5C2"
         android:fontFamily="@font/montserrat_regular"
         android:text="Enviar"
+        android:textAlignment="center"
         android:textIsSelectable="true"
         android:textSize="18sp"
         android:textStyle="bold"

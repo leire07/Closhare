@@ -7,4 +7,6 @@
     <string name="crear_cuenta">Crear cuenta</string>
     <string name="fondo">fondo</string>
     <string name="restaurar_pass">Por favor, incierta tu correo electronico para que nosotros podamos esviarte el link para restaurar tu contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.closhare">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,19 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".no_autorizado.Login"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".no_autorizado.Registrar"
             android:exported="true" />
         <activity
-            android:name=".Registrar"
+            android:name=".no_autorizado.RestaurarPass"
             android:exported="true" />
         <activity
-            android:name=".RestaurarPass"
-            android:exported="true" />
-        <activity
-            android:name=".Welcome"
+            android:name=".no_autorizado.Welcome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.closhare;
+package com.example.closhare.no_autorizado;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.closhare.R;
+import com.example.closhare.no_autorizado.Login;
 
 public class Welcome extends AppCompatActivity {
 
