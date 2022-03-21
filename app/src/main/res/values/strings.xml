@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Closhare</string>
+    <string name="welcome_texto">Combina tus prendas y encuentra los mejores conjuntos para los eventos</string>
+    <string name="welcome_button">Empiezar a contruir tus looks</string>
+    <string name="login_restaurar">Restaurar contraseña</string>
+    <string name="login_entrar">Entrar </string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="fondo">fondo</string>
+    <string name="restaurar_pass">Por favor, incierta tu correo electronico para que nosotros podamos esviarte el link para restaurar tu contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
