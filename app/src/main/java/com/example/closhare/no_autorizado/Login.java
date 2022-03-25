@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.closhare.PruebaArmario;
 import com.example.closhare.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -102,7 +103,7 @@ public class Login extends AppCompatActivity {
                                 } else {
 //                                    TODO
 //                                   Entramos en HomePage
-//                                   startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                   startActivity(new Intent(getApplicationContext(), PruebaArmario.class));
                                 }
                             } else {
                                 Toast.makeText(getApplicationContext(), "Incorrecto usuario y/o contraseña", Toast.LENGTH_SHORT).show();

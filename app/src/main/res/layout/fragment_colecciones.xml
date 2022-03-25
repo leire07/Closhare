@@ -167,71 +167,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
-        <LinearLayout
-            android:id="@+id/layout_container"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_colecciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_extra_bold"
-                android:text="Favoritos"
-                android:textSize="24sp" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontal1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imageView20"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/perchas_metal" />
-
-                    <ImageView
-                        android:id="@+id/imageView21"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:cropToPadding="false"
-                        android:fadingEdge="horizontal"
-                        android:src="@drawable/perchas3" />
-
-                    <ImageView
-                        android:id="@+id/imageView19"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/coleccion" />
-
-                    <ImageView
-                        android:id="@+id/imageView18"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        tools:src="@tools:sample/backgrounds/scenic" />
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_extra_bold"
-                android:text="Verano"
-                android:textSize="24sp" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

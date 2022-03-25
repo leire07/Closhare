@@ -13,6 +13,9 @@
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_armario.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/layout/fragment_colecciones.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/recycler_armario.xml" value="0.2861111111111111" />
+        <entry key="app/src/main/res/layout/recycler_coleccion.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/recycler_colecciones.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22037037037037038" />
       </map>
     </option>
