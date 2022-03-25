@@ -85,18 +85,18 @@ public class ColeccionesListAdaptador extends RecyclerView.Adapter<ColeccionesLi
         holder.nombreColeccion.setText((String) colecciones.get(position).get("Nombre"));
 
         for(int i=0; i<colecciones.size()+1; i++){
-            if(!colecciones.get(position).get("Foto"+i).equals(null)){
+            if(colecciones.get(position).get("Foto" + i) != null){
                 fotos.add(i, (String) colecciones.get(position).get("Foto"+i));
             }
         }
 
         Log.d("Foto lista ", fotos.toString());
 
-//        holder.recycler_coleccion.setLayoutManager(new LinearLayoutManager(context.getApplicationContext()));
+        holder.recycler_coleccion.setLayoutManager(new LinearLayoutManager(context.getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 //        La captura de como rellenarlo completo esta en es escritorio.
 
-//        adapter = new ColeccionesListAdaptador(context.getApplicationContext(), fotos);
-//        holder.recycler_coleccion.setAdapter(adapter);
+        adapter = new ColeccionAdapter(context.getApplicationContext(), fotos);
+        holder.recycler_coleccion.setAdapter(adapter);
 
     }
 

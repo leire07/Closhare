@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -33,7 +34,7 @@ import java.util.List;
 public class ColeccionAdapter extends RecyclerView.Adapter<ColeccionAdapter.ViewHolder>{
 
     private Context context;
-    private List<HashMap> fotosConjunto;
+    private List<String> fotosConjunto;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
 
@@ -50,6 +51,27 @@ public class ColeccionAdapter extends RecyclerView.Adapter<ColeccionAdapter.View
             db = FirebaseFirestore.getInstance();
             mAuth = FirebaseAuth.getInstance();
 
+            heart_full.setVisibility(View.GONE);
+
+            if(heart_full.getVisibility() == View.GONE){
+                heart_empty.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        heart_empty.setVisibility(View.GONE);
+                        heart_full.setVisibility(View.VISIBLE);
+                    }
+                });
+            } else if(heart_empty.getVisibility() == View.GONE) {
+                heart_full.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        heart_full.setVisibility(View.GONE);
+                        heart_empty.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
+
+
         }
 
         void bindData(final PrendasList item ){
@@ -63,7 +85,7 @@ public class ColeccionAdapter extends RecyclerView.Adapter<ColeccionAdapter.View
         }
     }
 
-    public ColeccionAdapter(Context context, List<HashMap> fotosConjunto) {
+    public ColeccionAdapter(Context context, List<String> fotosConjunto) {
         this.context = context;
         this.fotosConjunto = fotosConjunto;
     }
@@ -83,17 +105,15 @@ public class ColeccionAdapter extends RecyclerView.Adapter<ColeccionAdapter.View
     @Override
     public void onBindViewHolder( @NonNull ViewHolder holder,  int position){
 
-        Log.d("FotoConjunto ",fotosConjunto.toString());
+        for(int i=0; i<fotosConjunto.size(); i++){
 
-//        for(int i=0; i<fotosConjunto.size(); i++){
-//            Glide.with(context).load(fotosConjunto.get(i).get("Foto"+i)).into(holder.imageConjunto);
-//        }
+            Glide.with(context)
+                    .load(fotosConjunto.get(position))
+                    .into(holder.imageConjunto);
+        }
 
     }
 
-    public String toHex(String arg) {
-        return String.format("%x", new BigInteger(1, arg.getBytes(/*YOUR_CHARSET?*/)));
-    }
 
-    public void setItems(List<HashMap> items){fotosConjunto = items;}
+    public void setItems(List<String> items){fotosConjunto = items;}
 }
