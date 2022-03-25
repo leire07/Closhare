@@ -122,52 +122,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-//        Funcion para APIWeather
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    JSONArray jsonArray = jsonResponse.getJSONArray("weather");
-                    JSONObject jsonObjectWeather = jsonArray.getJSONObject(0);
-                    JSONObject jsonObjectMain = jsonResponse.getJSONObject("main");
-                    int tempa = jsonObjectMain.getInt("temp");
-                    String city = jsonResponse.getString("name");
-                    String icon = jsonResponse.getJSONArray("weather").getJSONObject(0).getString("icon");
-
-                    //String urlfoto  = "http://openweathermap.org/img/wn/" + icon + ".png";
-//                    Log.d("Demo" , urlfoto);
-
-                    prueba.setText(String.valueOf(tempa) + "°C");
-//                    location.setText(city);
-//                    new FetchImage(url).start();
-//                    Picasso.get()
-//                            .load(urlfoto)
-//                            .into(iconWeather);
-
-//                    Glide.with(getContext())
-//                            .load(url)
-//                            .into(iconWeather);
-
-//                    InputStream inputStream = null;
-//                    inputStream = new URL(url).openStream();
-//                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-//                    iconWeather.setImageBitmap(bitmap);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        });
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
     }
 
 //    La funcion para comprobar que la frase sea email

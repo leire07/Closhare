@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tiempoAhora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_regular"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/home_hello" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -71,8 +71,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/geo"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/tiempoAhora"
+        app:layout_constraintTop_toTopOf="@+id/tiempoAhora"
         app:tint="#C6CBCE" />
 
     <ImageView
@@ -92,7 +92,7 @@
         android:text="Nublado"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/icono_tiempo"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/location"
         app:layout_constraintTop_toTopOf="@+id/icono_tiempo" />
 
     <TextView
@@ -120,7 +120,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout6"
         android:layout_width="278dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/input_text"
         android:backgroundTint="#C5CBCE"
@@ -142,8 +142,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
         android:background="@drawable/input_text"
         android:cropToPadding="false"
         android:paddingLeft="30dp"
@@ -172,5 +172,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/a_coleccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a coleccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
