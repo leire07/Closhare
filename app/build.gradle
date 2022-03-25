@@ -47,4 +47,7 @@ dependencies {
     implementation files ('../weather/QWeather_Public_Android_V4.8.jar')
 //    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.0'
+
+//    Resto
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
