@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/icon_style.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/drawable/input_text.xml" value="0.25794871794871793" />
         <entry key="app/src/main/res/drawable/left_border.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/drawable/top_cercle.xml" value="0.23489583333333333" />
+        <entry key="app/src/main/res/drawable/top_circle.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -16,6 +19,7 @@
         <entry key="app/src/main/res/layout/recycler_armario.xml" value="0.5" />
         <entry key="app/src/main/res/layout/recycler_coleccion.xml" value="0.7378691248289733" />
         <entry key="app/src/main/res/layout/recycler_colecciones.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/window_nuevo.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22037037037037038" />
       </map>
     </option>

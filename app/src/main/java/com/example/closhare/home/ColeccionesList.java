@@ -1,4 +1,4 @@
-package com.example.closhare;
+package com.example.closhare.home;
 
 public class ColeccionesList {
 

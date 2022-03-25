@@ -18,10 +18,10 @@
             android:name=".no_autorizado.Login"
             android:exported="true" />
         <activity
-            android:name=".PruebaHome"
+            android:name=".home.PruebaHome"
             android:exported="true"/>
         <activity
-            android:name=".PruebaArmario"
+            android:name=".armario.PruebaArmario"
             android:exported="true"/>
         <activity
             android:name=".no_autorizado.Registrar"
