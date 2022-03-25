@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
 
 //    Definiendo objetos de la vista
     Button entrar;
-    TextView crear_cuenta, restaurar_pass, prueba;
+    TextView crear_cuenta, restaurar_pass;
     TextInputEditText usuario, password;
 
 //    Firebase
@@ -60,7 +60,6 @@ public class Login extends AppCompatActivity {
         restaurar_pass = findViewById(R.id.restaurar_pass);
         usuario = findViewById(R.id.login_username);
         password = findViewById(R.id.login_pass);
-        prueba = findViewById(R.id.prueba_api);
 
 //        Firebase
         mAuth = FirebaseAuth.getInstance();

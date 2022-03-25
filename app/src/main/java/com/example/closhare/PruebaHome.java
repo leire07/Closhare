@@ -2,6 +2,7 @@ package com.example.closhare;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,6 +30,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class PruebaHome extends AppCompatActivity {
 
     Button coleccion;
@@ -34,6 +42,12 @@ public class PruebaHome extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseFirestore db;
+
+    RecyclerView recyclerViewColecciones;
+    ColeccionesListAdaptador adaptador;
+    //    TODO poder fotos en mapa
+    List<HashMap> listColecciones = new ArrayList<>();
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -125,6 +139,7 @@ public class PruebaHome extends AppCompatActivity {
             }
         });
 
+
         db.collection("Colecciones")
                 .document(mAuth.getCurrentUser().getUid())
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -132,6 +147,17 @@ public class PruebaHome extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
 
+                    for(int i=0; i<task.getResult().getData().size(); i++){
+                        listColecciones.add(i, (HashMap) task.getResult().getData().get("Coleccion"+i));
+                    }
+
+                    Log.d("listColecciones ", listColecciones.toString());
+
+                    recyclerViewColecciones = findViewById(R.id.recycler_colecciones);
+//        La captura de como rellenarlo completo esta en es escritorio.
+                    recyclerViewColecciones.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    adaptador = new ColeccionesListAdaptador(getApplicationContext(), listColecciones);
+                    recyclerViewColecciones.setAdapter(adaptador);
 
 
                 } else {

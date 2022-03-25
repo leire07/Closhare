@@ -115,11 +115,7 @@ public class PrendasListAdaptador extends RecyclerView.Adapter<PrendasListAdapta
 //                    TODO: como cogeremos el color de la imagen? de esto dependo como ;e enviaremos info a bd
 //                    Meteremos rgb para el color
 //                    holder.etiqueta_color.setBackgroundColor(prendas.indexOf(prendas.get(position)));
-                    holder.etiqueta_color.setBackgroundColor(0x00FF0000);
-
-//                    holder.etiqueta_color.setBackgroundColor();
-                    String a = "sljnf";
-
+//                    holder.etiqueta_color.setBackgroundColor(0xFF000000);
 
                 }
             }
