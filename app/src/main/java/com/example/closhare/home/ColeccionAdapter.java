@@ -60,14 +60,8 @@ public class ColeccionAdapter extends RecyclerView.Adapter<ColeccionAdapter.View
 
         }
 
-        void bindData(final PrendasList item ){
+        void bindData(final ColeccionesList item ){
 
-//            Aqui sacamos la foto y color de etiqueta
-//            Picasso.get()
-//                    .load(item.getFotoPrenda())
-//                    .into(imagePrenda);
-
-//            etiqueta_color.setBackgroundColor(item.getNombreColor());
         }
     }
 

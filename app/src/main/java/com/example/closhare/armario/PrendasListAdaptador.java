@@ -27,16 +27,15 @@ import java.util.List;
 
 public class PrendasListAdaptador extends RecyclerView.Adapter<PrendasListAdaptador.ViewHolder>{
 
+//    Difiniendo variables
     private Context context;
     private List<HashMap> prendas;
-//    private LayoutInflater mInflates;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-//    FirebaseUser usuario;
-//    boolean isActivatedButton;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+//        Difinimos los objetos que tenemos en el layout
         ImageView imagePrenda;
         Button etiqueta_color;
 
@@ -46,11 +45,9 @@ public class PrendasListAdaptador extends RecyclerView.Adapter<PrendasListAdapta
             etiqueta_color = itemView.findViewById(R.id.etiqueta_color);
             db = FirebaseFirestore.getInstance();
             mAuth = FirebaseAuth.getInstance();
-
         }
 
         void bindData(final PrendasList item ){
-
 //            Aqui sacamos la foto y color de etiqueta
             Picasso.get()
                     .load(item.getFotoPrenda())
@@ -79,15 +76,7 @@ public class PrendasListAdaptador extends RecyclerView.Adapter<PrendasListAdapta
 
     @Override
     public void onBindViewHolder( @NonNull ViewHolder holder,  int position){
-
-//        List<Object> prenda = new ArrayList<>();
-//        holder.tarea.setText(tareas.get(position).getTarea());
-
-//        for(int i=0; i<prendas.size(); i++){
-//            tareaa.add(i, (String) prendas.get(i).get("tarea"));
-//            prenda.add(i, )
-//        }
-
+//        Hacemos la consulta a bd para sacar el array con cada prenda
         db.collection("Armario")
                 .document(mAuth.getCurrentUser().getUid())
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -117,40 +106,6 @@ public class PrendasListAdaptador extends RecyclerView.Adapter<PrendasListAdapta
             }
 
         });
-//        holder.tarea.setText(tareaa.get(position).toString());
-
-
-
-//        db.collection("Tareas")
-//                .document(mAuth.getCurrentUser().getUid())
-//                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if(task.isComplete()){
-//
-//                    List<String> tareaa = new ArrayList<>();
-////                    List<Long> verde = new ArrayList<>();
-////                    List<Long> azul = new ArrayList<>();
-//
-//                    for(int i=0; i<task.getResult().getData().size(); i++){
-////                        Log.d("Color", String.valueOf(task.getResult().getData().get("Prueba1")));
-////                        Log.d("Modo2", modo.get(i).toString());
-//
-//                        tareaa.add(i, (String) tareas.get(i).get("tarea"));
-////                        verde.add(i, (Long) modo.get(i).get("green"));
-////                        azul.add(i, (Long) modo.get(i).get("blue"));
-//                    }
-////                    holder.button.setText("Modo" + (modo.indexOf(modo.get(position))+1));
-////                    holder.text.setText("Modo" + (modo.indexOf(modo.get(position))+1));
-////                    holder.button.setBackgroundColor(getIntFromColor(Math.toIntExact(rojo.get(position)), Math.toIntExact(verde.get(position)), Math.toIntExact(azul.get(position))));
-////                    holder.button.setBackgroundResource(R.drawable.bordes_redondos_botton);
-////                    holder.button.setColorFilter(getIntFromColor(Math.toIntExact(rojo.get(position)), Math.toIntExact(verde.get(position)), Math.toIntExact(azul.get(position))));
-//                    holder.tarea.setText(tareaa.get(position).toString());
-////                    Log.d("RedArray", rojo.toString());
-//
-//                }
-//            }
     }
 
     public String toHex(String arg) {
