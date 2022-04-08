@@ -146,6 +146,7 @@ public class PruebaHome extends AppCompatActivity {
 
                     if(task.getResult().getString("Nombre") == null){
                         saludo.setText("Ninguno usuario esta entrado");
+                        saludo.setTextSize(20);
                     } else {
                         String name = task.getResult().getString("Nombre");
                         saludo.setText("Hola, " + name);

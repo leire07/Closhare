@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,7 @@ public class PruebaArmario extends AppCompatActivity {
     FirebaseFirestore db;
 
     Button casa;
+    TextView prendaNul;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class PruebaArmario extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        prendaNul = findViewById(R.id.prendaNulo);
 
         casa = findViewById(R.id.a_home);
         casa.setOnClickListener(new View.OnClickListener() {
@@ -58,17 +62,25 @@ public class PruebaArmario extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
-                    for(int i=0; i<task.getResult().getData().size(); i++){
-                        leer.add(i, (HashMap) task.getResult().getData().get("Foto"+i));
-                    }
 
-                    Log.d("Leer", leer.toString());
+                    if (task.getResult().getData() == null){
 
-                    recyclerViewArmario = findViewById(R.id.recyclerViewArmario);
+                        prendaNul.setVisibility(View.VISIBLE);
+
+                    } else {
+                        for(int i=0; i<task.getResult().getData().size(); i++){
+                            leer.add(i, (HashMap) task.getResult().getData().get("Foto"+i));
+                        }
+
+                        Log.d("Leer", leer.toString());
+
+                        recyclerViewArmario = findViewById(R.id.recyclerViewArmario);
 //        La captura de como rellenarlo completo esta en es escritorio.
-                    recyclerViewArmario.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
-                    adaptador = new PrendasListAdaptador(getApplicationContext(), leer);
-                    recyclerViewArmario.setAdapter(adaptador);
+                        recyclerViewArmario.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
+                        adaptador = new PrendasListAdaptador(getApplicationContext(), leer);
+                        recyclerViewArmario.setAdapter(adaptador);
+
+                    }
 
                 }
             }

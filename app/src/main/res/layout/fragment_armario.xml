@@ -108,4 +108,18 @@
             android:textColor="#000000" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/prendaNulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_extra_bold"
+        android:text="Añade tu primera prenda"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewArmario"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewArmario"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewArmario" />
 </androidx.constraintlayout.widget.ConstraintLayout>
