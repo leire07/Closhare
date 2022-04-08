@@ -37,7 +37,7 @@ import java.util.List;
 
 public class PruebaHome extends AppCompatActivity {
 
-    Button coleccion;
+    Button coleccion, salir;
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Gandia&units=metric&appid=e96051f26738be95560f9d1a8d60feb6";
     TextView saludo, tiempoAhora, location;
 
@@ -64,6 +64,13 @@ public class PruebaHome extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        salir = findViewById(R.id.salir);
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+            }
+        });
 
         coleccion = findViewById(R.id.a_coleccion);
         coleccion.setOnClickListener(new View.OnClickListener() {
