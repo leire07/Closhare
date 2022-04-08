@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.closhare.R;
 import com.example.closhare.armario.PruebaArmario;
+import com.example.closhare.no_autorizado.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +41,7 @@ public class PruebaHome extends AppCompatActivity {
 
     Button coleccion, salir;
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Gandia&units=metric&appid=e96051f26738be95560f9d1a8d60feb6";
-    TextView saludo, tiempoAhora, location;
+    TextView saludo, tiempoAhora, location, coleccionNull;
 
     FirebaseAuth mAuth;
     FirebaseFirestore db;
@@ -59,6 +61,7 @@ public class PruebaHome extends AppCompatActivity {
         saludo = findViewById(R.id.home_hello);
         tiempoAhora = findViewById(R.id.tiempoAhora);
         location = findViewById(R.id.location);
+        coleccionNull = findViewById(R.id.coleccionNulo);
 
 
         db = FirebaseFirestore.getInstance();
@@ -69,6 +72,7 @@ public class PruebaHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(PruebaHome.this, Login.class));
             }
         });
 
@@ -139,10 +143,15 @@ public class PruebaHome extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
-                    String name = task.getResult().getString("Nombre");
-                    saludo.setText("Hola, " + name);
+
+                    if(task.getResult().getString("Nombre") == null){
+                        saludo.setText("Ninguno usuario esta entrado");
+                    } else {
+                        String name = task.getResult().getString("Nombre");
+                        saludo.setText("Hola, " + name);
+                    }
                 } else {
-//                    TODO: Crear algun campo si es nulo
+                    Toast.makeText(getApplicationContext(), "Se ha producido error al leer base de datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -155,21 +164,26 @@ public class PruebaHome extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
 
-                    for(int i=0; i<task.getResult().getData().size(); i++){
-                        listColecciones.add(i, (HashMap) task.getResult().getData().get("Coleccion"+i));
-                    }
+                    Log.d("task", task.getResult().toString());
 
-                    Log.d("listColecciones ", listColecciones.toString());
+                    if(task.getResult().getData() == null){
+                        coleccionNull.setVisibility(View.VISIBLE);
+                    } else {
 
-                    recyclerViewColecciones = findViewById(R.id.recycler_colecciones);
+                        for(int i=0; i<task.getResult().getData().size(); i++){
+                            listColecciones.add(i, (HashMap) task.getResult().getData().get("Coleccion"+i));
+                        }
+
+                        Log.d("listColecciones ", listColecciones.toString());
+
+                        recyclerViewColecciones = findViewById(R.id.recycler_colecciones);
 //        La captura de como rellenarlo completo esta en es escritorio.
-                    recyclerViewColecciones.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                    adaptador = new ColeccionesListAdaptador(getApplicationContext(), listColecciones);
-                    recyclerViewColecciones.setAdapter(adaptador);
-
-
+                        recyclerViewColecciones.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        adaptador = new ColeccionesListAdaptador(getApplicationContext(), listColecciones);
+                        recyclerViewColecciones.setAdapter(adaptador);
+                    }
                 } else {
-//                    TODO: Crear campo si es nulo
+                    Toast.makeText(getApplicationContext(), "Se ha producido error al leer base de datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -157,6 +157,7 @@
         app:layout_constraintTop_toTopOf="@+id/textInputLayout6" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -189,5 +190,19 @@
         android:text="Sign out"
         app:layout_constraintStart_toEndOf="@+id/a_coleccion"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/coleccionNulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserrat_extra_bold"
+        android:text="Aun no tienes ninguna coleccion creada"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
