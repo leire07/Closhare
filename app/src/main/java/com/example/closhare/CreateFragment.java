@@ -1,5 +1,7 @@
 package com.example.closhare;
 
+import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class CreateFragment extends Fragment {
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,6 +56,13 @@ public class CreateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
+        View bottomSheetView = LayoutInflater.from(getContext())
+                .inflate(R.layout.window_nuevo,null);
+        bottomSheetDialog.setContentView(bottomSheetView);
+
+        bottomSheetDialog.getWindow().setBackgroundDrawable( new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        bottomSheetDialog.show();
         return inflater.inflate(R.layout.fragment_create, container, false);
     }
 }

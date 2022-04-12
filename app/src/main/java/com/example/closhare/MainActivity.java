@@ -1,6 +1,7 @@
 package com.example.closhare;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ChipNavigationBar chipNavigationBar;
     private Fragment fragment = null;
     private StorageReference mStorageRef;
+    private Fragment activeFragment = new CollectionFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 switch (i) {
                     case R.id.collection:
                         fragment = new CollectionFragment();
+                        activeFragment = new CollectionFragment();
                         break;
                     case R.id.create:
-                        fragment = new CreateFragment();
+                        fragment = new BottomSheet();
                         break;
                     case R.id.gallery:
                         fragment = new GalleryFragment();
+                        activeFragment = new GalleryFragment();
                         break;
 
                 }
