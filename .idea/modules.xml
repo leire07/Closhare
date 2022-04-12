@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Closhare.iml" filepath="$PROJECT_DIR$/.idea/modules/Closhare.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Closhare.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Closhare.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Closhare.iml" filepath="$PROJECT_DIR$/.idea/Closhare.iml" />
     </modules>
   </component>
 </project>
