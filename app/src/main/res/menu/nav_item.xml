@@ -4,25 +4,22 @@
 
     <item
         android:id="@+id/collection"
-        android:icon="@drawable/ic_home_collection"
+        android:icon="@drawable/ic_home_collectoin"
         android:title="Collection"
-        app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="#A833FF"
-        app:cnb_textColor="#A833FF" />
+        app:cnb_iconColor="#95B5C2"
+        app:cnb_textColor="#95B5C2" />
 
     <item
         android:id="@+id/create"
-        android:icon="@drawable/ic_create_collection"
+        android:icon="@drawable/ic_create_collectoin"
         android:title="Create"
-        app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="#A833FF"
-        app:cnb_textColor="#A833FF" />
+        app:cnb_iconColor="#95B5C2"
+        app:cnb_textColor="#95B5C2" />
 
     <item
         android:id="@+id/gallery"
         android:icon="@drawable/ic_gallery"
         android:title="Gallery"
-        app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="#A833FF"
-        app:cnb_textColor="#A833FF" />
+        app:cnb_iconColor="#95B5C2"
+        app:cnb_textColor="#95B5C2" />
 </menu>

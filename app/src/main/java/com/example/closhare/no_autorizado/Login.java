@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.closhare.MainActivity;
 import com.example.closhare.armario.PruebaArmario;
 import com.example.closhare.R;
 import com.example.closhare.home.PruebaHome;
@@ -81,7 +82,7 @@ public class Login extends AppCompatActivity {
             funciones();
         } else {
             Log.d("Ususario entrado ","true");
-            startActivity(new Intent(this, PruebaHome.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
