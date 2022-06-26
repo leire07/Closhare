@@ -1,15 +1,12 @@
 package com.example.closhare;
 
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.closhare.R;
-import com.example.closhare.CollectionFragment;
-import com.example.closhare.CreateFragment;
-import com.example.closhare.GalleryFragment;
+import com.example.closhare.armario.GalleryFragment;
+import com.example.closhare.home.CollectionFragment;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
@@ -41,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
                         activeFragment = new CollectionFragment();
                         break;
                     case R.id.create:
-                        fragment = new BottomSheet();
+                        fragment = new CreateFragment();
                         break;
                     case R.id.gallery:
                         fragment = new GalleryFragment();
-                        activeFragment = new GalleryFragment();
+//                        activeFragment = new GalleryFragment();
                         break;
 
                 }

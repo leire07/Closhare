@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.closhare.R;
 import com.example.closhare.armario.PruebaArmario;
 import com.example.closhare.no_autorizado.Login;
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,15 +76,6 @@ public class PruebaHome extends AppCompatActivity {
                 startActivity(new Intent(PruebaHome.this, Login.class));
             }
         });
-
-        coleccion = findViewById(R.id.a_coleccion);
-        coleccion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), PruebaArmario.class));
-            }
-        });
-
 
 
         //        Funcion para APIWeather
@@ -151,9 +143,17 @@ public class PruebaHome extends AppCompatActivity {
                         String name = task.getResult().getString("Nombre");
                         saludo.setText("Hola, " + name);
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Se ha producido error al leer base de datos", Toast.LENGTH_SHORT).show();
                 }
+                else {
+                    Toast.makeText(getApplicationContext(), "Se ha producido error al leer base de datos usuario", Toast.LENGTH_SHORT).show();
+                    Log.d("FAIL", "usuario");
+                }
+            }
+
+        }).addOnCanceledListener(new OnCanceledListener() {
+            @Override
+            public void onCanceled() {
+                Log.d("task", "te jodes");
             }
         });
 
@@ -184,7 +184,8 @@ public class PruebaHome extends AppCompatActivity {
                         recyclerViewColecciones.setAdapter(adaptador);
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Se ha producido error al leer base de datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Se ha producido error al leer base de datos colecciones", Toast.LENGTH_SHORT).show();
+                    Log.d("FAIL", "colecciones");
                 }
             }
         });

@@ -1,4 +1,4 @@
-package com.example.closhare;
+package com.example.closhare.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.closhare.R;
 import com.example.closhare.armario.PruebaArmario;
 import com.example.closhare.home.ColeccionesListAdaptador;
 import com.example.closhare.home.PruebaHome;
@@ -32,6 +34,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,16 +44,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the factory method to
- * create an instance of this fragment.
- */
 public class CollectionFragment extends Fragment {
 
-    Button coleccion, salir;
+    Button salir;
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Gandia&units=metric&appid=e96051f26738be95560f9d1a8d60feb6";
     TextView saludo, tiempoAhora, location, coleccionNull;
+    ImageView iconWeather;
 
     FirebaseAuth mAuth;
     FirebaseFirestore db;
@@ -70,6 +69,7 @@ public class CollectionFragment extends Fragment {
         tiempoAhora = view.findViewById(R.id.tiempoAhora);
         location = view.findViewById(R.id.location);
         coleccionNull = view.findViewById(R.id.coleccionNulo);
+        iconWeather = view.findViewById(R.id.icono_tiempo);
 
 
         db = FirebaseFirestore.getInstance();
@@ -83,15 +83,6 @@ public class CollectionFragment extends Fragment {
                 startActivity(new Intent(getContext(), Login.class));
             }
         });
-
-        coleccion = view.findViewById(R.id.a_coleccion);
-        coleccion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), PruebaArmario.class));
-            }
-        });
-
 
         //        Funcion para APIWeather
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -107,15 +98,15 @@ public class CollectionFragment extends Fragment {
                     String city = jsonResponse.getString("name");
                     String icon = jsonResponse.getJSONArray("weather").getJSONObject(0).getString("icon");
 
-                    //String urlfoto  = "http://openweathermap.org/img/wn/" + icon + ".png";
+                    String urlfoto  = "http://openweathermap.org/img/wn/" + icon + ".png";
 //                    Log.d("Demo" , urlfoto);
 
                     tiempoAhora.setText(String.valueOf(tempa) + "°C");
                     location.setText(city);
 //                    new FetchImage(url).start();
-//                    Picasso.get()
-//                            .load(urlfoto)
-//                            .into(iconWeather);
+                    Picasso.get()
+                            .load(urlfoto)
+                            .into(iconWeather);
 
 //                    Glide.with(getContext())
 //                            .load(url)
